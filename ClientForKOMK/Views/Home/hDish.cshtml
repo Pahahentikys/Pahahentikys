@@ -1,0 +1,40 @@
+﻿<h2>hDish</h2>
+@{
+    //Layout = null;
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "hDish";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Столовая</title>
+</head>
+<body>
+    <div>
+        <h3>Состав блюда</h3>
+        <table class="table table-hover table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th><p>Имя блюда</p></th>
+                    <th><p>Имя ингридиента</p></th>
+                    <th><p>Количество ингридиента</p></th>
+                </tr>
+            </thead>
+            @foreach (var e in ViewBag.pGetDishComposition)
+            {
+                <tr>
+                    <td><p>@e.DishName</p></td>
+                    <td><p>@e.IngridientName</p></td>
+                    <td><p>@e.IngridientAmount</p></td>
+                </tr>
+            }
+        </table>
+
+    </div>
+
+</body>
+</html>
+

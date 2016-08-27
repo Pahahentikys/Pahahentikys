@@ -9,6 +9,8 @@ namespace ClientForKOMK.Controllers
     // Это - контроллер
     public class HomeController : Controller
     {
+
+        KOMK_v11_Procedure_BasePackEntities db = new KOMK_v11_Procedure_BasePackEntities();
         public ActionResult Index()
         {
             return View();
@@ -25,6 +27,14 @@ namespace ClientForKOMK.Controllers
         {
             ViewBag.Message = "Your contact page.";
 
+            return View();
+        }
+        public ActionResult hDish()
+        {
+            int DishId = 2;
+            //test pGetDishComposition(dishId)
+            IEnumerable<pGetDishComposition_Result> GetDish = db.pGetDishComposition(DishId);
+            ViewBag.pGetDishComposition = GetDish;
             return View();
         }
     }
