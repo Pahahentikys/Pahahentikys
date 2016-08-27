@@ -12,14 +12,12 @@ namespace ClientForKOMK
     using System;
     using System.Collections.Generic;
     
-    public partial class jDishWarehouse
+    public partial class sysdiagrams
     {
-        public int DishId { get; set; }
-        public int DishAmount { get; set; }
-        public int DishWarehouseId { get; set; }
-        public Nullable<System.DateTime> DishDate { get; set; }
-        public bool Exist { get; set; }
-    
-        public virtual hDish hDish { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

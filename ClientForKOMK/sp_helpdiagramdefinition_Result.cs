@@ -10,16 +10,10 @@
 namespace ClientForKOMK
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class jDishWarehouse
+    public partial class sp_helpdiagramdefinition_Result
     {
-        public int DishId { get; set; }
-        public int DishAmount { get; set; }
-        public int DishWarehouseId { get; set; }
-        public Nullable<System.DateTime> DishDate { get; set; }
-        public bool Exist { get; set; }
-    
-        public virtual hDish hDish { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

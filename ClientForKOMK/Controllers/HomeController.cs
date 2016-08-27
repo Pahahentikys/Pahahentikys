@@ -10,7 +10,7 @@ namespace ClientForKOMK.Controllers
     public class HomeController : Controller
     {
 
-        KOMK_v11_Procedure_BasePackEntities db = new KOMK_v11_Procedure_BasePackEntities();
+        KOMK_v6Entities db = new KOMK_v6Entities();
         public ActionResult Index()
         {
             return View();
