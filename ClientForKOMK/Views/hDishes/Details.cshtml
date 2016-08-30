@@ -1,0 +1,34 @@
+﻿@model ClientForKOMK.hDish
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>View</h2>
+
+<div>
+    <h4>hDish</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DishName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DishName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Exist)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Exist)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DishId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

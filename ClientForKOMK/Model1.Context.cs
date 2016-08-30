@@ -15,10 +15,10 @@ namespace ClientForKOMK
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class KOMK_v6Entities : DbContext
+    public partial class KOMK_v11_Procedure_BasePackEntities1 : DbContext
     {
-        public KOMK_v6Entities()
-            : base("name=KOMK_v6Entities")
+        public KOMK_v11_Procedure_BasePackEntities1()
+            : base("name=KOMK_v11_Procedure_BasePackEntities1")
         {
         }
     

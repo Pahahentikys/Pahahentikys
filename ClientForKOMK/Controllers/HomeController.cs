@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace ClientForKOMK.Controllers
 {
     // Это - контроллер
-    public class HomeController : Controller
+    public class HomeController : AsyncController
     {
 
-        KOMK_v6Entities db = new KOMK_v6Entities();
+        KOMK_v11_Procedure_BasePackEntities1 db = new KOMK_v11_Procedure_BasePackEntities1();
         public ActionResult Index()
         {
             return View();
@@ -29,13 +31,33 @@ namespace ClientForKOMK.Controllers
 
             return View();
         }
-        public ActionResult hDish()
-        {
-            int DishId = 2;
-            //test pGetDishComposition(dishId)
-            IEnumerable<pGetDishComposition_Result> GetDish = db.pGetDishComposition(DishId);
-            ViewBag.pGetDishComposition = GetDish;
-            return View();
-        }
+        //public ActionResult hDish(int? id)
+        //{
+        //    int DishIdInt;
+        //    if (int.TryParse(DishId, out DishIdInt))
+        //    //test pGetDishComposition(dishId)
+        //    {
+        //        DishIdInt = 2;
+        //        IEnumerable<pGetDishComposition_Result> GetDish = db.pGetDishComposition(DishIdInt);
+        //        ViewBag.pGetDishComposition = GetDish;
+        //        return View();
+        //    }
+        //    else
+        //    {
+        //        IEnumerable<pGetDishComposition_Result> GetDish = db.pGetDishComposition(DishIdInt);
+        //        ViewBag.pGetDishComposition = GetDish;
+        //        return View();
+        //    }
+        //}
+        //public async Task<ActionResult> hDishList()
+        //{
+
+        //    int DishId = 2;
+        //    //test pGetDishComposition(dishId)
+        //    IEnumerable<pGetDishComposition_Result> GetDish = await db.pGetDishComposition(DishId).ToListAsync();
+        //    ViewBag.pGetDishComposition = GetDish;
+        //    return View("hDish");
+        //}
+
     }
 }

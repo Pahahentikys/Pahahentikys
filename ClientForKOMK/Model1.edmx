@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище KOMK_v6Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище KOMK_v11_Procedure_BasePackModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="hCashBox">
           <Key>
             <PropertyRef Name="CashBoxId" />
@@ -382,7 +382,7 @@
           <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <EntityContainer Name="Хранилище KOMK_v6ModelContainer">
+        <EntityContainer Name="Хранилище KOMK_v11_Procedure_BasePackModelContainer">
           <EntitySet Name="hCashBox" EntityType="Self.hCashBox" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="hDish" EntityType="Self.hDish" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="hDishComposition" EntityType="Self.hDishComposition" Schema="dbo" store:Type="Tables" />
@@ -453,7 +453,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="KOMK_v6Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="KOMK_v11_Procedure_BasePackModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="hCashBox">
           <Key>
             <PropertyRef Name="CashBoxId" />
@@ -763,7 +763,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="KOMK_v6Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="KOMK_v11_Procedure_BasePackEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="hCashBox" EntityType="Self.hCashBox" />
           <EntitySet Name="hDish" EntityType="Self.hDish" />
           <EntitySet Name="hDishComposition" EntityType="Self.hDishComposition" />
@@ -882,14 +882,14 @@
           <FunctionImport Name="pDeleteDish">
             <Parameter Name="DishId" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="pGetDishComposition" ReturnType="Collection(KOMK_v6Model.pGetDishComposition_Result)">
+          <FunctionImport Name="pGetDishComposition" ReturnType="Collection(KOMK_v11_Procedure_BasePackModel.pGetDishComposition_Result)">
             <Parameter Name="DishId" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="pGetMenu" ReturnType="Collection(KOMK_v6Model.pGetMenu_Result)">
+          <FunctionImport Name="pGetMenu" ReturnType="Collection(KOMK_v11_Procedure_BasePackModel.pGetMenu_Result)">
             <Parameter Name="MenuId" Mode="In" Type="Int32" />
             <Parameter Name="MenuDate" Mode="In" Type="DateTime" />
           </FunctionImport>
-          <FunctionImport Name="pGetReceipt" ReturnType="Collection(KOMK_v6Model.pGetReceipt_Result)">
+          <FunctionImport Name="pGetReceipt" ReturnType="Collection(KOMK_v11_Procedure_BasePackModel.pGetReceipt_Result)">
             <Parameter Name="ReceiptId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_alterdiagram">
@@ -908,11 +908,11 @@
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(KOMK_v6Model.sp_helpdiagramdefinition_Result)">
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(KOMK_v11_Procedure_BasePackModel.sp_helpdiagramdefinition_Result)">
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(KOMK_v6Model.sp_helpdiagrams_Result)">
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(KOMK_v11_Procedure_BasePackModel.sp_helpdiagrams_Result)">
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -958,9 +958,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище KOMK_v6ModelContainer" CdmEntityContainer="KOMK_v6Entities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище KOMK_v11_Procedure_BasePackModelContainer" CdmEntityContainer="KOMK_v11_Procedure_BasePackEntities1">
           <EntitySetMapping Name="hCashBox">
-            <EntityTypeMapping TypeName="KOMK_v6Model.hCashBox">
+            <EntityTypeMapping TypeName="KOMK_v11_Procedure_BasePackModel.hCashBox">
               <MappingFragment StoreEntitySet="hCashBox">
                 <ScalarProperty Name="CashBoxId" ColumnName="CashBoxId" />
                 <ScalarProperty Name="CashBoxModel" ColumnName="CashBoxModel" />
@@ -969,7 +969,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="hDish">
-            <EntityTypeMapping TypeName="KOMK_v6Model.hDish">
+            <EntityTypeMapping TypeName="KOMK_v11_Procedure_BasePackModel.hDish">
               <MappingFragment StoreEntitySet="hDish">
                 <ScalarProperty Name="DishId" ColumnName="DishId" />
                 <ScalarProperty Name="DishName" ColumnName="DishName" />
@@ -978,7 +978,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="hDishComposition">
-            <EntityTypeMapping TypeName="KOMK_v6Model.hDishComposition">
+            <EntityTypeMapping TypeName="KOMK_v11_Procedure_BasePackModel.hDishComposition">
               <MappingFragment StoreEntitySet="hDishComposition">
                 <ScalarProperty Name="DishId" ColumnName="DishId" />
                 <ScalarProperty Name="IngridientId" ColumnName="IngridientId" />
@@ -989,7 +989,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="hIngridient">
-            <EntityTypeMapping TypeName="KOMK_v6Model.hIngridient">
+            <EntityTypeMapping TypeName="KOMK_v11_Procedure_BasePackModel.hIngridient">
               <MappingFragment StoreEntitySet="hIngridient">
                 <ScalarProperty Name="IngridientId" ColumnName="IngridientId" />
                 <ScalarProperty Name="IngridientName" ColumnName="IngridientName" />
@@ -998,7 +998,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="hMenuId">
-            <EntityTypeMapping TypeName="KOMK_v6Model.hMenuId">
+            <EntityTypeMapping TypeName="KOMK_v11_Procedure_BasePackModel.hMenuId">
               <MappingFragment StoreEntitySet="hMenuId">
                 <ScalarProperty Name="MenuId" ColumnName="MenuId" />
                 <ScalarProperty Name="MenuDate" ColumnName="MenuDate" />
@@ -1007,7 +1007,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="hPersonal">
-            <EntityTypeMapping TypeName="KOMK_v6Model.hPersonal">
+            <EntityTypeMapping TypeName="KOMK_v11_Procedure_BasePackModel.hPersonal">
               <MappingFragment StoreEntitySet="hPersonal">
                 <ScalarProperty Name="PersonId" ColumnName="PersonId" />
                 <ScalarProperty Name="PersonFlN" ColumnName="PersonFlN" />
@@ -1018,7 +1018,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="jDish">
-            <EntityTypeMapping TypeName="KOMK_v6Model.jDish">
+            <EntityTypeMapping TypeName="KOMK_v11_Procedure_BasePackModel.jDish">
               <MappingFragment StoreEntitySet="jDish">
                 <ScalarProperty Name="DishId" ColumnName="DishId" />
                 <ScalarProperty Name="PersonId" ColumnName="PersonId" />
@@ -1031,7 +1031,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="jDishWarehouse">
-            <EntityTypeMapping TypeName="KOMK_v6Model.jDishWarehouse">
+            <EntityTypeMapping TypeName="KOMK_v11_Procedure_BasePackModel.jDishWarehouse">
               <MappingFragment StoreEntitySet="jDishWarehouse">
                 <ScalarProperty Name="DishId" ColumnName="DishId" />
                 <ScalarProperty Name="DishAmount" ColumnName="DishAmount" />
@@ -1042,7 +1042,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="jEntrancePosition">
-            <EntityTypeMapping TypeName="KOMK_v6Model.jEntrancePosition">
+            <EntityTypeMapping TypeName="KOMK_v11_Procedure_BasePackModel.jEntrancePosition">
               <MappingFragment StoreEntitySet="jEntrancePosition">
                 <ScalarProperty Name="EntranceId" ColumnName="EntranceId" />
                 <ScalarProperty Name="IngridientId" ColumnName="IngridientId" />
@@ -1054,7 +1054,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="jMenuComposition">
-            <EntityTypeMapping TypeName="KOMK_v6Model.jMenuComposition">
+            <EntityTypeMapping TypeName="KOMK_v11_Procedure_BasePackModel.jMenuComposition">
               <MappingFragment StoreEntitySet="jMenuComposition">
                 <ScalarProperty Name="MenuId" ColumnName="MenuId" />
                 <ScalarProperty Name="DishId" ColumnName="DishId" />
@@ -1064,7 +1064,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="jReceipt">
-            <EntityTypeMapping TypeName="KOMK_v6Model.jReceipt">
+            <EntityTypeMapping TypeName="KOMK_v11_Procedure_BasePackModel.jReceipt">
               <MappingFragment StoreEntitySet="jReceipt">
                 <ScalarProperty Name="ReceiptId" ColumnName="ReceiptId" />
                 <ScalarProperty Name="ReceiptSumAmount" ColumnName="ReceiptSumAmount" />
@@ -1076,7 +1076,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="jReceiptPosition">
-            <EntityTypeMapping TypeName="KOMK_v6Model.jReceiptPosition">
+            <EntityTypeMapping TypeName="KOMK_v11_Procedure_BasePackModel.jReceiptPosition">
               <MappingFragment StoreEntitySet="jReceiptPosition">
                 <ScalarProperty Name="ReceiptId" ColumnName="ReceiptId" />
                 <ScalarProperty Name="DishId" ColumnName="DishId" />
@@ -1089,7 +1089,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="KOMK_v6Model.sysdiagrams">
+            <EntityTypeMapping TypeName="KOMK_v11_Procedure_BasePackModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -1099,38 +1099,38 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="InshDish" FunctionName="Хранилище KOMK_v6Model.InshDish" />
-          <FunctionImportMapping FunctionImportName="InshDishComposition" FunctionName="Хранилище KOMK_v6Model.InshDishComposition" />
-          <FunctionImportMapping FunctionImportName="InshIngridient" FunctionName="Хранилище KOMK_v6Model.InshIngridient" />
-          <FunctionImportMapping FunctionImportName="InshMenuId" FunctionName="Хранилище KOMK_v6Model.InshMenuId" />
-          <FunctionImportMapping FunctionImportName="InshPersonal" FunctionName="Хранилище KOMK_v6Model.InshPersonal" />
-          <FunctionImportMapping FunctionImportName="InsjEntrance" FunctionName="Хранилище KOMK_v6Model.InsjEntrance" />
-          <FunctionImportMapping FunctionImportName="InsjMenu" FunctionName="Хранилище KOMK_v6Model.InsjMenu" />
-          <FunctionImportMapping FunctionImportName="InsjMenuComposition" FunctionName="Хранилище KOMK_v6Model.InsjMenuComposition" />
-          <FunctionImportMapping FunctionImportName="InsjReceiptCashBox" FunctionName="Хранилище KOMK_v6Model.InsjReceiptCashBox" />
-          <FunctionImportMapping FunctionImportName="InsReceiptPosition" FunctionName="Хранилище KOMK_v6Model.InsReceiptPosition" />
-          <FunctionImportMapping FunctionImportName="pDeleteDish" FunctionName="Хранилище KOMK_v6Model.pDeleteDish" />
-          <FunctionImportMapping FunctionImportName="pGetDishComposition" FunctionName="Хранилище KOMK_v6Model.pGetDishComposition">
+          <FunctionImportMapping FunctionImportName="InshDish" FunctionName="Хранилище KOMK_v11_Procedure_BasePackModel.InshDish" />
+          <FunctionImportMapping FunctionImportName="InshDishComposition" FunctionName="Хранилище KOMK_v11_Procedure_BasePackModel.InshDishComposition" />
+          <FunctionImportMapping FunctionImportName="InshIngridient" FunctionName="Хранилище KOMK_v11_Procedure_BasePackModel.InshIngridient" />
+          <FunctionImportMapping FunctionImportName="InshMenuId" FunctionName="Хранилище KOMK_v11_Procedure_BasePackModel.InshMenuId" />
+          <FunctionImportMapping FunctionImportName="InshPersonal" FunctionName="Хранилище KOMK_v11_Procedure_BasePackModel.InshPersonal" />
+          <FunctionImportMapping FunctionImportName="InsjEntrance" FunctionName="Хранилище KOMK_v11_Procedure_BasePackModel.InsjEntrance" />
+          <FunctionImportMapping FunctionImportName="InsjMenu" FunctionName="Хранилище KOMK_v11_Procedure_BasePackModel.InsjMenu" />
+          <FunctionImportMapping FunctionImportName="InsjMenuComposition" FunctionName="Хранилище KOMK_v11_Procedure_BasePackModel.InsjMenuComposition" />
+          <FunctionImportMapping FunctionImportName="InsjReceiptCashBox" FunctionName="Хранилище KOMK_v11_Procedure_BasePackModel.InsjReceiptCashBox" />
+          <FunctionImportMapping FunctionImportName="InsReceiptPosition" FunctionName="Хранилище KOMK_v11_Procedure_BasePackModel.InsReceiptPosition" />
+          <FunctionImportMapping FunctionImportName="pDeleteDish" FunctionName="Хранилище KOMK_v11_Procedure_BasePackModel.pDeleteDish" />
+          <FunctionImportMapping FunctionImportName="pGetDishComposition" FunctionName="Хранилище KOMK_v11_Procedure_BasePackModel.pGetDishComposition">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="KOMK_v6Model.pGetDishComposition_Result">
+              <ComplexTypeMapping TypeName="KOMK_v11_Procedure_BasePackModel.pGetDishComposition_Result">
                 <ScalarProperty Name="DishName" ColumnName="DishName" />
                 <ScalarProperty Name="IngridientName" ColumnName="IngridientName" />
                 <ScalarProperty Name="IngridientAmount" ColumnName="IngridientAmount" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="pGetMenu" FunctionName="Хранилище KOMK_v6Model.pGetMenu">
+          <FunctionImportMapping FunctionImportName="pGetMenu" FunctionName="Хранилище KOMK_v11_Procedure_BasePackModel.pGetMenu">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="KOMK_v6Model.pGetMenu_Result">
+              <ComplexTypeMapping TypeName="KOMK_v11_Procedure_BasePackModel.pGetMenu_Result">
                 <ScalarProperty Name="MenuDate" ColumnName="MenuDate" />
                 <ScalarProperty Name="DishName" ColumnName="DishName" />
                 <ScalarProperty Name="DishCost" ColumnName="DishCost" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="pGetReceipt" FunctionName="Хранилище KOMK_v6Model.pGetReceipt">
+          <FunctionImportMapping FunctionImportName="pGetReceipt" FunctionName="Хранилище KOMK_v11_Procedure_BasePackModel.pGetReceipt">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="KOMK_v6Model.pGetReceipt_Result">
+              <ComplexTypeMapping TypeName="KOMK_v11_Procedure_BasePackModel.pGetReceipt_Result">
                 <ScalarProperty Name="DishName" ColumnName="DishName" />
                 <ScalarProperty Name="DishAmount" ColumnName="DishAmount" />
                 <ScalarProperty Name="DishCost" ColumnName="DishCost" />
@@ -1141,20 +1141,20 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Хранилище KOMK_v6Model.sp_alterdiagram" />
-          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Хранилище KOMK_v6Model.sp_creatediagram" />
-          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Хранилище KOMK_v6Model.sp_dropdiagram" />
-          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Хранилище KOMK_v6Model.sp_helpdiagramdefinition">
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Хранилище KOMK_v11_Procedure_BasePackModel.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Хранилище KOMK_v11_Procedure_BasePackModel.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Хранилище KOMK_v11_Procedure_BasePackModel.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Хранилище KOMK_v11_Procedure_BasePackModel.sp_helpdiagramdefinition">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="KOMK_v6Model.sp_helpdiagramdefinition_Result">
+              <ComplexTypeMapping TypeName="KOMK_v11_Procedure_BasePackModel.sp_helpdiagramdefinition_Result">
                 <ScalarProperty Name="version" ColumnName="version" />
                 <ScalarProperty Name="definition" ColumnName="definition" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Хранилище KOMK_v6Model.sp_helpdiagrams">
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Хранилище KOMK_v11_Procedure_BasePackModel.sp_helpdiagrams">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="KOMK_v6Model.sp_helpdiagrams_Result">
+              <ComplexTypeMapping TypeName="KOMK_v11_Procedure_BasePackModel.sp_helpdiagrams_Result">
                 <ScalarProperty Name="Database" ColumnName="Database" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
@@ -1163,8 +1163,8 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище KOMK_v6Model.sp_renamediagram" />
-          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище KOMK_v6Model.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище KOMK_v11_Procedure_BasePackModel.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище KOMK_v11_Procedure_BasePackModel.sp_upgraddiagrams" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

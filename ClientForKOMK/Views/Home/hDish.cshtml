@@ -1,8 +1,7 @@
-﻿<h2>hDish</h2>
-@{
+﻿@{
     //Layout = null;
     //Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = "hDish";
+    ViewBag.Title = "Столовая";
 }
 
 <!DOCTYPE html>
@@ -10,10 +9,13 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Столовая</title>
+    
 </head>
 <body>
     <div>
+        <h4>Имя блюда<textarea name="DishId"></textarea>
+        @Html.ActionLink("Блюда", "hDish", "Home")
+        <button>Выбрать другое блюдо</button></h4>
         <h3>Состав блюда</h3>
         <table class="table table-hover table-bordered table-striped">
             <thead>
