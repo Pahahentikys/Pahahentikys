@@ -11,6 +11,7 @@ namespace ClientForKOMK
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class jReceipt
     {
@@ -19,7 +20,7 @@ namespace ClientForKOMK
         {
             this.jReceiptPosition = new HashSet<jReceiptPosition>();
         }
-    
+        [Key]
         public int ReceiptId { get; set; }
         public decimal ReceiptSumAmount { get; set; }
         public int ReceiptCashBoxId { get; set; }

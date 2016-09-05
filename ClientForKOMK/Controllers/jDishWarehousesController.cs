@@ -10,106 +10,112 @@ using ClientForKOMK;
 
 namespace ClientForKOMK.Controllers
 {
-    public class hDishesController : Controller
+    public class jDishWarehousesController : Controller
     {
         private KOMK_v11_Procedure_BasePackEntities2 db = new KOMK_v11_Procedure_BasePackEntities2();
 
-        // GET: hDishes
+        // GET: jDishWarehouses
         public ActionResult Index()
         {
-            return View(db.hDish.ToList());
+            var jDishWarehouse = db.jDishWarehouse.Include(j => j.hDish);
+            return View(jDishWarehouse.ToList());
         }
 
-        // GET: hDishes/Details/5
+        // GET: jDishWarehouses/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            hDish hDish = db.hDish.Find(id);
-            if (hDish == null)
+            jDishWarehouse jDishWarehouse = db.jDishWarehouse.Find(id);
+            if (jDishWarehouse == null)
             {
                 return HttpNotFound();
             }
-            return View(hDish);
+            return View(jDishWarehouse);
         }
 
-        // GET: hDishes/Create
+        // GET: jDishWarehouses/Create
         public ActionResult Create()
         {
+            ViewBag.DishId = new SelectList(db.hDish, "DishId", "DishName");
             return View();
         }
 
-        // POST: hDishes/Create
+        // POST: jDishWarehouses/Create
         // Чтобы защититься от атак чрезмерной передачи данных, включите определенные свойства, для которых следует установить привязку. Дополнительные 
         // сведения см. в статье http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "DishId,DishName,Exist")] hDish hDish)
+        public ActionResult Create([Bind(Include = "DishId,DishAmount,DishWarehouseId,DishDate,Exist")] jDishWarehouse jDishWarehouse)
         {
             if (ModelState.IsValid)
             {
-                db.hDish.Add(hDish);
+                db.jDishWarehouse.Add(jDishWarehouse);
                 db.SaveChanges();
+                return RedirectToAction("Index");
             }
 
-            return View(hDish);
+            ViewBag.DishId = new SelectList(db.hDish, "DishId", "DishName", jDishWarehouse.DishId);
+            return View(jDishWarehouse);
         }
 
-        // GET: hDishes/Edit/5
+        // GET: jDishWarehouses/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            hDish hDish = db.hDish.Find(id);
-            if (hDish == null)
+            jDishWarehouse jDishWarehouse = db.jDishWarehouse.Find(id);
+            if (jDishWarehouse == null)
             {
                 return HttpNotFound();
             }
-            return View(hDish);
+            ViewBag.DishId = new SelectList(db.hDish, "DishId", "DishName", jDishWarehouse.DishId);
+            return View(jDishWarehouse);
         }
 
-        // POST: hDishes/Edit/5
+        // POST: jDishWarehouses/Edit/5
         // Чтобы защититься от атак чрезмерной передачи данных, включите определенные свойства, для которых следует установить привязку. Дополнительные 
         // сведения см. в статье http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "DishId,DishName,Exist")] hDish hDish)
+        public ActionResult Edit([Bind(Include = "DishId,DishAmount,DishWarehouseId,DishDate,Exist")] jDishWarehouse jDishWarehouse)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(hDish).State = EntityState.Modified;
+                db.Entry(jDishWarehouse).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(hDish);
+            ViewBag.DishId = new SelectList(db.hDish, "DishId", "DishName", jDishWarehouse.DishId);
+            return View(jDishWarehouse);
         }
 
-        // GET: hDishes/Delete/5
+        // GET: jDishWarehouses/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            hDish hDish = db.hDish.Find(id);
-            if (hDish == null)
+            jDishWarehouse jDishWarehouse = db.jDishWarehouse.Find(id);
+            if (jDishWarehouse == null)
             {
                 return HttpNotFound();
             }
-            return View(hDish);
+            return View(jDishWarehouse);
         }
 
-        // POST: hDishes/Delete/5
+        // POST: jDishWarehouses/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            hDish hDish = db.hDish.Find(id);
-            db.hDish.Remove(hDish);
+            jDishWarehouse jDishWarehouse = db.jDishWarehouse.Find(id);
+            db.jDishWarehouse.Remove(jDishWarehouse);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

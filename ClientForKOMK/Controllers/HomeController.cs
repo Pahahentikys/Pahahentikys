@@ -12,7 +12,7 @@ namespace ClientForKOMK.Controllers
     public class HomeController : AsyncController
     {
 
-        KOMK_v11_Procedure_BasePackEntities1 db = new KOMK_v11_Procedure_BasePackEntities1();
+        KOMK_v11_Procedure_BasePackEntities2 db = new KOMK_v11_Procedure_BasePackEntities2();
         public ActionResult Index()
         {
             return View();
@@ -31,24 +31,24 @@ namespace ClientForKOMK.Controllers
 
             return View();
         }
-        //public ActionResult hDish(int? id)
-        //{
-        //    int DishIdInt;
-        //    if (int.TryParse(DishId, out DishIdInt))
-        //    //test pGetDishComposition(dishId)
-        //    {
-        //        DishIdInt = 2;
-        //        IEnumerable<pGetDishComposition_Result> GetDish = db.pGetDishComposition(DishIdInt);
-        //        ViewBag.pGetDishComposition = GetDish;
-        //        return View();
-        //    }
-        //    else
-        //    {
-        //        IEnumerable<pGetDishComposition_Result> GetDish = db.pGetDishComposition(DishIdInt);
-        //        ViewBag.pGetDishComposition = GetDish;
-        //        return View();
-        //    }
-        //}
+        public ActionResult hDish(int? id)
+        {
+            int DishIdInt;
+            if (int.TryParse("2", out DishIdInt))
+            //test pGetDishComposition(dishId)
+            {
+                DishIdInt = 2;
+                IEnumerable<pGetDishComposition_Result> GetDish = db.pGetDishComposition(DishIdInt);
+                ViewBag.pGetDishComposition = GetDish;
+                return View();
+            }
+            else
+            {
+                IEnumerable<pGetDishComposition_Result> GetDish = db.pGetDishComposition(DishIdInt);
+                ViewBag.pGetDishComposition = GetDish;
+                return View();
+            }
+        }
         //public async Task<ActionResult> hDishList()
         //{
 
