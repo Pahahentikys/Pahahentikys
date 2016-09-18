@@ -12,7 +12,7 @@ namespace ClientForKOMK.Controllers
     public class HomeController : AsyncController
     {
 
-        KOMK_v11_Procedure_BasePackEntities2 db = new KOMK_v11_Procedure_BasePackEntities2();
+        KOMK_v11_Procedure_BasePackEntities db = new KOMK_v11_Procedure_BasePackEntities();
         public ActionResult Index()
         {
             return View();

@@ -12,7 +12,7 @@ namespace ClientForKOMK.Controllers
 {
     public class jDishWarehousesController : Controller
     {
-        private KOMK_v11_Procedure_BasePackEntities2 db = new KOMK_v11_Procedure_BasePackEntities2();
+        private KOMK_v11_Procedure_BasePackEntities db = new KOMK_v11_Procedure_BasePackEntities();
 
         // GET: jDishWarehouses
         public ActionResult Index()

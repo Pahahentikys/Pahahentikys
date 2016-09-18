@@ -12,7 +12,7 @@ namespace ClientForKOMK.Controllers
 {
     public class hDishesController : Controller
     {
-        private KOMK_v11_Procedure_BasePackEntities2 db = new KOMK_v11_Procedure_BasePackEntities2();
+        private KOMK_v11_Procedure_BasePackEntities db = new KOMK_v11_Procedure_BasePackEntities();
 
         // GET: hDishes
         public ActionResult Index()
