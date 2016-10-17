@@ -11,6 +11,7 @@ namespace ClientForKOMK
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class hDish
     {
@@ -24,7 +25,10 @@ namespace ClientForKOMK
             this.jReceiptPosition = new HashSet<jReceiptPosition>();
         }
     
+        [Required(ErrorMessage ="Укажите идентификатор!")]
         public int DishId { get; set; }
+
+        [Required(ErrorMessage ="Введите наименование блюда!")]
         public string DishName { get; set; }
         public bool Exist { get; set; }
     
